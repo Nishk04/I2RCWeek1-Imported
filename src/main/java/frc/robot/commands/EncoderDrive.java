@@ -6,7 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
-
+// Using encoders this command makes the robot travel a certain distance
 public class EncoderDrive extends CommandBase {
   /** Creates a new EncoderDrive. */
   DriveTrain dt;
