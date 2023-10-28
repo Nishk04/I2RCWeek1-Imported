@@ -22,14 +22,13 @@ public class EncoderDrive extends CommandBase {
   @Override
   public void initialize() {
     dt.resetEncoders();
+    dt.tankDrive(0,0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    while(setpoint > dt.TicksToMeters()){
-    dt.tankDrive(0.2, 0.2);
-    }
+    dt.tankDrive(0.3, 0.3);
   }
 
   // Called once the command ends or is interrupted.

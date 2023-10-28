@@ -36,15 +36,15 @@ public class DriveTrain extends SubsystemBase {
     leftDriveTalon = new WPI_TalonSRX(Constants.DriveTrainPorts.LeftDriveTalonPort);
     rightDriveTalon = new WPI_TalonSRX(Constants.DriveTrainPorts.RightDriveTalonPort);
 
-    leftDriveTalon.setNeutralMode(NeutralMode.Coast);
-    rightDriveTalon.setNeutralMode(NeutralMode.Coast);
+    leftDriveTalon.setNeutralMode(NeutralMode.Brake);
+    rightDriveTalon.setNeutralMode(NeutralMode.Brake);
 
     leftDriveTalon.setInverted(true);
     rightDriveTalon.setInverted(false);
 
     leftDriveTalon.setSensorPhase(true);
     rightDriveTalon.setSensorPhase(true);
-
+    
     leftDriveTalon.configFactoryDefault();
     leftDriveTalon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     rightDriveTalon.configFactoryDefault();
@@ -88,7 +88,8 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("Left Encoder Ticks: ", leftDriveTalon.getSelectedSensorPosition());
     SmartDashboard.putNumber("Right Encoder Ticks: ", rightDriveTalon.getSelectedSensorPosition());
     SmartDashboard.putNumber("Meters Driven:", TicksToMeters());
-
+    SmartDashboard.putNumber("Angle: ", getAngle());
+    
     LeftVoltage.setDouble(leftDriveTalon.getMotorOutputPercent());
     RightVoltage.setDouble(rightDriveTalon.getMotorOutputPercent());
 

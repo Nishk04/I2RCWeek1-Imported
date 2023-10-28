@@ -24,4 +24,10 @@ public final class Constants {
         public static final int Zero = 0;
         public static final int One = 1;
     }
+
+    public static final class PIDTurnConstants {
+        public static final double kp = 0.3/90;
+        public static final double kd = 0.0002;
+    }
+
 }
